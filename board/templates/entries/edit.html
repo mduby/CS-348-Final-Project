@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Edit Entries{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+<form method="post">
+<div class="form-group">
+    <label for="id">Post ID:</label>
+    <input type="number" name="id" id="id" value="{{ request.form['id'] }}" class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="password">User Password</label>
+    <input type="text" name="password" id="password" value="{{ request.form['password'] }}"                                                              class="form-control">
+</div>
+<p>If editing, fill in the two boxes below.  If not, disregard.</p>
+<p>Select field to edit:
+    <select name="edit_value" class="input">
+      <option value="blank"></option>
+      <option value="task">Task Completed</option>
+      <option value="time_spent">Recorded Time</option>
+      <option value="class_name">Class Name</option>
+      <option value="group_num">Group Number</option>
+    </select>
+  </p>
+<div class="form-group">
+    <label for="new_value">Enter new value:</label>
+    <input type="text" name="new_value" id="new_value" value="{{ request.form['new_value'] }}"                                                              class="form-control">
+</div>
+
+<p>Select edit or delete:
+    <select name="type" class="input">
+      <option value="blank"></option>
+      <option value="edit">Edit</option>
+      <option value="delete">Delete</option>
+    </select>
+  </p>
+
+<div class="form-group">
+    <input type="submit" value="Process Request" class="submit-btn">
+</div>
+</form>
+
+{% endblock content %}

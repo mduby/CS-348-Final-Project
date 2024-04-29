@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Add Class Information{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+  <form method="post">
+    <div class="form-group">
+        <label for="class_id">Class ID</label>
+        <input type="text" name="class_id" id="class_id" value="{{ request.form['class_id'] }}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="class_name">Class Name</label>
+        <textarea name="class_name" id="class_name" class="form-control">{{ request.form['class_name'] }}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="email">Professor's Email (@purdue.edu)</label>
+        <textarea name="email" id="email" class="form-control">{{ request.form['email'] }}</textarea>
+    </div>
+ 
+    <div class="form-group">
+        <input type="submit" value="Add Class" class="submit-btn">
+    </div>
+</form>
+{% endblock content %}

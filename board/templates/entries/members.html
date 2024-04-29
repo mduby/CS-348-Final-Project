@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Registered Members{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+}
+
+</style>
+<p>Total students: {{ total }}</p>
+  <table style="background-color:#FFFFFF;margin-left:auto;margin-right:auto;">
+    <tr>
+      <th>Student ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Year</th>
+    </tr>
+  {% for student in students %}
+      <tr>
+        <td>{{ student["student_id"] }}</td>
+	<td>{{ student["student_name"] }}</td>
+        <td>{{ student["email"] }}</td>
+        <td>{{ student["student_year"] }}</td>
+      </tr>
+  {% endfor %}
+  </table>
+  <p> </p>
+  <table style="background-color:#FFFFFF;margin-left:auto;margin-right:auto;">
+    <tr>
+      <th>Professor Name</th>
+      <th>Email</th>
+      <th>Office</th>
+    </tr>
+  {% for employee in employees %}
+      <tr>
+        <td>{{ employee["employee_name"] }}</td>
+	<td>{{ employee["email"] }}</td>
+        <td>{{ employee["office"] }}</td>
+      </tr>
+  {% endfor %}
+  </table>
+  <p> </p>
+{% endblock content %}

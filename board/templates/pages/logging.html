@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Let's Get Logging{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+  <p>Enter or view hours below.</p>
+<p>
+    Start logging hours by visiting the <a href="{{ url_for('entries.create') }}">Add Entry</a> page.
+  </p>
+<p>
+    Start viewing hours by visiting the <a href="{{ url_for('entries.entries') }}">View Entries</a> page.
+  </p>
+<p>
+    See team statistics by visiting the <a href="{{ url_for('entries.statistics') }}">View Statistics</a> page.
+  </p>
+  <p>
+    View individual data by visiting the <a href="{{ url_for('entries.individual') }}">View Individual Statistics</a> page.
+  </p>
+<p>
+  See registered students <a href="{{ url_for('entries.members') }}">here</a> and registered classes <a href="{{ url_for('entries.classes') }}">here</a>.
+</p>
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Registration{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+  <form method="post">
+  <p>You appear to be a new user. Let's register you!</p>
+    <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" name="name" id="name" value="{{ request.form['name'] }}" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="id">Student or Employee ID</label>
+        <input type="number" name="id" id="id" value="{{ request.form['id'] }}"                                                              class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email (@purdue.edu)</label>
+        <input type="text" name="email" id="email" value="{{ request.form['email'] }}"                                                              class="form-control">
+    </div>
+
+    <p>Select option:
+    <select name="year" class="input">
+      <option value="blank"></option>
+      <option value="Freshman">Freshman</option>
+      <option value="Sophomore">Sophomore</option>
+      <option value="Junior">Junior</option>
+      <option value="Senior">Senior</option>
+      <option value="Professor">Professor</option>
+    </select>
+  </p>
+
+  <div class="form-group">
+    <label for="office">If an employee, enter your office location (form: XXXX 1234, ex. ARMS 1022) </label>
+    <input type="text" name="office" id="office" value="{{ request.form['office'] }}"                                                              class="form-control">
+</div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="text" name="password" id="password" value="{{ request.form['password'] }}"                                                              class="form-control">
+  </div>
+   
+  <div class="form-group">
+      <input type="submit" value="Register Me!" class="submit-btn">
+  </div>
+</form>
+{% endblock content %}

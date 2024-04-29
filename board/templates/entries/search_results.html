@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Total Entries Found{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+}
+
+</style>
+  <table style="background-color:#FFFFFF;margin-left:auto;margin-right:auto;">
+    <tr>
+      <th>Post ID</th>
+      <th>Name</th>
+      <th>Task Completed</th>
+      <th>Recorded Time (min)</th>
+      <th>Class</th>
+      <th>Group Number</th>
+    </tr>
+  {% for post in entries %}
+      <tr>
+        <td>{{ post["id"] }}</td>
+        <td>{{ post["author"] }}</td>
+      	<td>{{ post["task"] }}</td>
+        <td>{{ post["time_spent"] }}</td>
+        <td>{{ post["class_name"] }}</td>
+        <td>{{ post["group_num"] }}</td>
+      </tr>
+  {% endfor %}
+  </table>
+  <p> </p>
+
+  <h2>Statistics</h2>
+  <table style="background-color:#FFFFFF;margin-left:auto;margin-right:auto;">
+    <tr>
+      <th>Name</th>
+      <th>Average Time Contributed (min)</th>
+      <th>Class</th>
+    </tr>
+
+  {% for post in statistics %}
+      <tr>
+        <td>{{ post["author"] }}</td>
+	<td>{{ post["average"] }}</td>
+	<td>{{ post["class_name"] }}</td>
+      </tr>
+  {% endfor %}
+  </table>
+
+  <p></p>
+
+{% endblock content %}

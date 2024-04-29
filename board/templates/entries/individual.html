@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Search Entries{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+  <form method="post">
+     <p>Enter desired information for search.</p>
+     
+  <p>Select name:
+    <select name="name" class="input">
+      <option value="blank"></option>
+      {% for post in authors %}
+        <option value="{{ post.author }}">{{ post.author }}</option>
+      {% endfor %}
+    </select>
+  </p>
+
+  <p>Select class:
+    <select name="class_name" class="input">
+      <option value="blank"></option>
+      {% for post in classes %}
+        <option value="{{ post.class_name }}">{{ post.class_name }}</option>
+      {% endfor %}
+    </select>
+  </p>
+
+  <p>Select group number:
+    <select name="group_num" class="input">
+      <option value="blank"></option>
+      {% for post in groups %}
+        <option value="{{ post.group_num }}">{{ post.group_num }}</option>
+      {% endfor %}
+    </select>
+  </p>
+
+    <div class="form-group">
+        <input type="submit" value="Search" class="submit-btn">
+    </div>
+  </form>
+{% endblock content %}

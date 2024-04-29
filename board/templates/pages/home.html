@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Home{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+  <p>
+Powered by students, this application helps you log time and information to easily track your progress on different classes where groupwork is the foundation! </p>
+<p>
+    Start logging hours by visiting the <a href="{{ url_for('pages.logging') }}">Let's Get Logging</a> page.
+  </p>
+{% endblock content %}

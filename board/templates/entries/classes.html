@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Registered Classes{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+}
+
+</style>
+  <table style="background-color:#FFFFFF;margin-left:auto;margin-right:auto;">
+    <tr>
+      <th>Class ID</th>
+      <th>Professor</th>
+      <th>Contact Email</th>
+      <th>Office</th>
+    </tr>
+  {% for class in classes %}
+      <tr>
+        <td>{{ class["class_fid"] }}</td>
+        <td>{{ class["employee_name"] }}</td>
+        <td>{{ class["email"]}}</td>
+        <td>{{ class["office"]}}</td>
+      </tr>
+  {% endfor %}
+  </table>
+  <p> </p>
+{% endblock content %}

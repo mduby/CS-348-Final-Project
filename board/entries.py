@@ -216,14 +216,14 @@ def edit():
                 db.commit()
             else:
                 if (edit_value == "task"):
-                    db.execute(f"UPDATE post SET task = %{new_value}s WHERE id = {id}", {'new_value': new_value})
+                    db.execute(f"UPDATE post SET task = ? WHERE id = {id}", (new_value, ))
                     db.commit()
                 elif (edit_value == "time_spent"):
                     new_val = float(new_value)
                     db.execute(f"UPDATE post SET time_spent = {new_val} WHERE id = {id}")
                     db.commit()
                 elif (edit_value == "class_name"):
-                    db.execute(f"UPDATE post SET class_name = %{new_value}s WHERE id = {id}", {'new_value': new_value})
+                    db.execute(f"UPDATE post SET class_name = ? WHERE id = {id}", (new_value, ))
                     db.commit()
                 elif (edit_value == "group_num"):
                     new_val = int(new_value)

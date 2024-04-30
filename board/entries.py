@@ -98,16 +98,12 @@ def create():
         
         if (found_passwords[0] == password):
             db = get_db()
-            found = db.execute("SELECT Count(*) FROM post WHERE class_name = ?", (class_name, )).fetchone()
             
             db.execute(
                 "INSERT INTO post (student_id, task, time_spent, class_name, group_num) VALUES (?, ?, ?, ?, ?)",
                 (student_id, task, time_spent, class_name, group_num),
             )
             db.commit()
-            
-            if (found[0] == 0):
-                return redirect(url_for("entries.create_class"))
             
             return redirect(url_for("entries.entries"))
         else:
@@ -156,7 +152,7 @@ def statistics():
 def individual():
     db = get_db()
     authors = db.execute("SELECT DISTINCT (SELECT student_name FROM student WHERE S.student_id = student_id) as author FROM post as S").fetchall()
-    classes = db.execute("SELECT DISTINCT class_name FROM post").fetchall()
+    classes = db.execute("SELECT DISTINCT class_name FROM class").fetchall()
     groups = db.execute("SELECT DISTINCT group_num FROM post").fetchall()
     
     if request.method == "POST":
